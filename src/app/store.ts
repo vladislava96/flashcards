@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import cardsListReducer from '../features/cardsList/cardsListSlice';
+import deleteCardReducer from '../features/cardsList/cardsListSlice';
+import editFormReducer from '../features/card-edit-form/cardEditFormSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    cardsList: cardsListReducer,
+    deleteCard: deleteCardReducer,
+    editForm: editFormReducer
   },
 });
 

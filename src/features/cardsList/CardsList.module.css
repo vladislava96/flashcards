@@ -1,0 +1,15 @@
+.cardsList {
+  display: flex;
+  width: 1200px;
+  gap: 45px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.card {
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}

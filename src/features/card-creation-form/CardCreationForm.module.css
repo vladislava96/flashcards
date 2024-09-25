@@ -1,0 +1,7 @@
+.cardCreationForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 10px;
+  background-color: burlywood;
+}
