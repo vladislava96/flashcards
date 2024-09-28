@@ -10,7 +10,7 @@ export function CardsList() {
   const cards = useAppSelector(cardsInSet(openSetID));
 
 	const listItems = cards.map(card => (
-    <Card key={card.id} term={card.term} definition={card.definition} id={card.id} setId={card.id}/>
+    <Card key={card.id} term={card.term} definition={card.definition} id={card.id} setId={card.setId}/>
   ));
 	return (
     <div className={style.cardsList}>

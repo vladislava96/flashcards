@@ -1,6 +1,6 @@
 import './App.css';
-import { CardCreationForm } from './features/card-creation-form/CardCreationForm';
-import { CardEditForm } from './features/card-edit-form/CardEditForm';
+import { CardCreationForm } from './features/card-creation-form/cardCreationForm';
+import { CardEditForm } from './features/card-edit-form/cardEditForm';
 import { SetCreationForm } from './features/set-creation-form/SetCreationForm';
 import { Board } from './features/board/Board';
 import { SetEditForm } from './features/set-edit-form/SetEditForm';

@@ -18,7 +18,8 @@ const cardsListSlice = createSlice({
   reducers: {
     addCard: cardsAdapter.addOne,
     deleteCard: cardsAdapter.removeOne,
-    editCard: cardsAdapter.updateOne
+    editCard: cardsAdapter.updateOne,
+    deleteCardsInSet: cardsAdapter.removeMany
   }
 });
 
@@ -34,7 +35,10 @@ export const cardsInSet = (setId: number) => (state: RootState) => {
   return result
 }
 
-export const {addCard, deleteCard, editCard} = cardsListSlice.actions;
+export const idCardsInSet = (idSetDelete: number) => (state: RootState) => {
+  return cardsInSet(idSetDelete)(state).map((card) => card.id);
+}
+
+export const {addCard, deleteCard, editCard, deleteCardsInSet} = cardsListSlice.actions;
 
 export default cardsListSlice.reducer;
-
