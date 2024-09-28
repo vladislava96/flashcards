@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addCard } from '../cardsList/cardsListSlice';
 import styles from './CardCreationForm.module.css';
+import { selectBoard } from '../board/boardSlice';
 
 export function CardCreationForm() {
   const [term, setTerm] = useState("");
   const [description, setDescription] = useState("");
   const [index, setIndex] = useState(0);
   const dispatch = useAppDispatch();
+  const openSetId = useAppSelector(selectBoard);
 
   return (
     <div>
@@ -18,7 +20,8 @@ export function CardCreationForm() {
         dispatch(addCard({
           term: term,
           definition: description,
-          id: index
+          id: index,
+          setId: openSetId
         }))
       }}>
         <label>Term:

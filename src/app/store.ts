@@ -1,13 +1,17 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import cardsListReducer from '../features/cardsList/cardsListSlice';
-import deleteCardReducer from '../features/cardsList/cardsListSlice';
 import editFormReducer from '../features/card-edit-form/cardEditFormSlice';
+import setsListReducer from '../features/setsList/setsListSlice';
+import boardReducer from '../features/board/boardSlice';
+import setEditFormReducer from '../features/set-edit-form/setEditFormSlice';
 
 export const store = configureStore({
   reducer: {
     cardsList: cardsListReducer,
-    deleteCard: deleteCardReducer,
-    editForm: editFormReducer
+    setsList: setsListReducer,
+    editForm: editFormReducer,
+    board: boardReducer,
+    setEditForm: setEditFormReducer
   },
 });
 

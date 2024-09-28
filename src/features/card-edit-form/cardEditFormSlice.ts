@@ -6,10 +6,11 @@ const initialState: CardModel = {
   term: '',
   definition: '',
   id: -1,
+  setId: -1
 };
 
 const cardEditFormSlice = createSlice({
-  name: "editForm",
+  name: "cardEditForm",
   initialState,
   reducers: {
     editForm: (state, action: PayloadAction<CardModel>) => {

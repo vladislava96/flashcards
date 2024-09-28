@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editCard } from '../cardsList/cardsListSlice';
 import styles from './CardEditForm.module.css';
@@ -30,6 +29,7 @@ export function CardEditForm() {
               id: cardData.id,
               definition: cardData.definition,
               term: e.target.value,
+              setId: cardData.setId
             }))}
           />
         </label>
@@ -41,6 +41,7 @@ export function CardEditForm() {
               id: cardData.id,
               definition: e.target.value,
               term: cardData.term,
+              setId: cardData.setId
             }))}
           />
         </label>

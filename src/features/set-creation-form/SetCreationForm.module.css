@@ -1,7 +1,7 @@
-.cardEditForm {
+.setCreationForm {
   display: flex;
   flex-direction: column;
   width: 300px;
   padding: 10px;
-  background-color: rgb(135, 210, 222);
+  background-color: burlywood;
 }

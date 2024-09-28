@@ -6,13 +6,14 @@ import { deleteCard } from '../cardsList/cardsListSlice';
 import { CardModel } from '../cardsList/cardsListSlice';
 import { editForm } from '../card-edit-form/cardEditFormSlice';
 
-export function Card({ term, definition, id }: CardModel) {
+export function Card({ term, definition, id, setId }: CardModel) {
   const dispatch = useAppDispatch();
   const [inverted, setSide] = useState(false);
   return (
     <div className={styles.card} onClick={() => setSide(!inverted)}>
       {inverted ? definition : term}
       <p>{id}</p>
+      <p>{setId}</p>
       <button onClick={(e) => {
         e.stopPropagation();
         dispatch(deleteCard(id))
@@ -22,7 +23,8 @@ export function Card({ term, definition, id }: CardModel) {
         dispatch(editForm({
           term,
           definition,
-          id
+          id,
+          setId
         }))
       }}>Edit</button>
     </div>

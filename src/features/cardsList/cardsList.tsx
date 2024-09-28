@@ -1,12 +1,16 @@
 import { useAppSelector } from '../../app/hooks';
-import style from './CardsList.module.css';
 import { Card } from '../card/Card';
-import { allCards } from './cardsListSlice';
+import { cardsInSet } from './cardsListSlice';
+import { selectBoard } from '../board/boardSlice';
+
+import style from './CardsList.module.css';
 
 export function CardsList() {
-  const cards = useAppSelector(allCards);
+  const openSetID = useAppSelector(selectBoard);
+  const cards = useAppSelector(cardsInSet(openSetID));
+
 	const listItems = cards.map(card => (
-    <Card key={card.id} term={card.term} definition={card.definition} id={card.id}/>
+    <Card key={card.id} term={card.term} definition={card.definition} id={card.id} setId={card.id}/>
   ));
 	return (
     <div className={style.cardsList}>
