@@ -1,25 +1,25 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import { addSet } from '../setsList/setsListSlice';
 import styles from './SetCreationForm.module.css';
 
 export function SetCreationForm() {
   const [name, setName] = useState("");
-  const [index, setIndex] = useState(0);
   const dispatch = useAppDispatch();
+
+  function onFormSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    dispatch(addSet({
+      id: -1,
+      name: name,
+      cards: []
+    }))
+  };
 
   return (
     <div>
       <p>Set Create form</p>
-      <form className={styles.setCreationForm} onSubmit={(e) => {
-        e.preventDefault();
-        setIndex(index + 1);
-        dispatch(addSet({
-          id: index,
-          name: name,
-          cards: []
-        }))
-      }}>
+      <form className={styles.setCreationForm} onSubmit={onFormSubmit}>
         <label>name:
           <input
             type="text"

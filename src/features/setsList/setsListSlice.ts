@@ -14,9 +14,16 @@ const setsAdapter = createEntityAdapter({
 
 const setsListSlice = createSlice({
   name: "setsList",
-  initialState: setsAdapter.getInitialState(),
+  initialState: setsAdapter.getInitialState({
+    lastID: -1
+  }),
   reducers: {
-    addSet: setsAdapter.addOne,
+    addSet: (state, action) => {
+      let set = action.payload;
+      state.lastID++;
+      set.id = state.lastID;
+      setsAdapter.addOne(state, set)
+    },
     deleteSet: setsAdapter.removeOne,
     editSet: setsAdapter.updateOne
   }

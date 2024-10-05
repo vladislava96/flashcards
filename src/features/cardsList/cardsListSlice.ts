@@ -14,9 +14,16 @@ const cardsAdapter = createEntityAdapter({
 
 const cardsListSlice = createSlice({
   name: "cardsList",
-  initialState: cardsAdapter.getInitialState(),
+  initialState: cardsAdapter.getInitialState({
+    lastID: -1
+  }),
   reducers: {
-    addCard: cardsAdapter.addOne,
+    addCard: (state, action) => {
+      let card = action.payload;
+      state.lastID++;
+      card.id = state.lastID;
+      cardsAdapter.addOne(state, card)
+    },
     deleteCard: cardsAdapter.removeOne,
     editCard: cardsAdapter.updateOne,
     deleteCardsInSet: cardsAdapter.removeMany
