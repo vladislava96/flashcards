@@ -1,3 +1,4 @@
+import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editCard } from '../cardsList/cardsListSlice';
 import styles from './CardEditForm.module.css';
@@ -8,41 +9,51 @@ export function CardEditForm() {
   const cardData = useAppSelector(selectForm);
   const dispatch = useAppDispatch();
 
+  function onFormSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    dispatch(editCard({
+      id: cardData.id,
+      changes: {
+        term: cardData.term,
+        definition: cardData.definition
+      }
+    }))
+  }
+
+  function onTermChange(e: ChangeEvent<HTMLInputElement>) {
+    dispatch(editForm({
+      id: cardData.id,
+      definition: cardData.definition,
+      term: e.target.value,
+      setId: cardData.setId
+    }))
+  }
+
+  function onDefinitionChange(e: ChangeEvent<HTMLInputElement>) {
+    dispatch(editForm({
+      id: cardData.id,
+      definition: e.target.value,
+      term: cardData.term,
+      setId: cardData.setId
+    }))
+  }
+
   return (
     <div>
       <p>Edit form</p>
-      <form className={styles.cardEditForm} onSubmit={(e) => {
-        e.preventDefault();
-        dispatch(editCard({
-          id: cardData.id,
-          changes: {
-            term: cardData.term,
-            definition: cardData.definition
-          }
-        }))
-      }}>
+      <form className={styles.cardEditForm} onSubmit={onFormSubmit}>
         <label>Term:
           <input
             type="text"
             value={cardData.term}
-            onChange={(e) => dispatch(editForm({
-              id: cardData.id,
-              definition: cardData.definition,
-              term: e.target.value,
-              setId: cardData.setId
-            }))}
+            onChange={onTermChange}
           />
         </label>
         <label>Description:
           <input
             type="text"
             value={cardData.definition}
-            onChange={(e) => dispatch(editForm({
-              id: cardData.id,
-              definition: e.target.value,
-              term: cardData.term,
-              setId: cardData.setId
-            }))}
+            onChange={onDefinitionChange}
           />
         </label>
         <input type="submit" value="Update"></input>

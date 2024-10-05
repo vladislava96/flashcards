@@ -1,0 +1,14 @@
+.board {
+  width: 90vw;
+  background-color: aqua;
+}
+
+.breadcrumbs li {
+  display: inline-block;
+  list-style: none;
+}
+
+.breadcrumbs {
+  background-color: blueviolet;
+  color:beige
+}

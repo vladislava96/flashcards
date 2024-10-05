@@ -1,7 +1,8 @@
 .setsList {
   display: flex;
-  width: 1200px;
+  width: 100%;
   gap: 45px;
   flex-wrap: wrap;
   margin: 0 auto;
+  background-color: brown;
 }

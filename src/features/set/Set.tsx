@@ -5,30 +5,38 @@ import { deleteSet, SetModel } from '../setsList/setsListSlice';
 import { openSet } from '../board/boardSlice';
 import { editForm } from '../set-edit-form/setEditFormSlice';
 import { idCardsInSet, deleteCardsInSet } from '../cardsList/cardsListSlice';
+import { MouseEvent } from 'react';
 
-export function Set({id, name, cards}: SetModel) {
+interface SetProperties {
+  set: SetModel
+}
+
+export function Set({ set }: SetProperties) {
   const dispatch = useAppDispatch();
-  const idCardsDelete = useAppSelector(idCardsInSet(id));
+  const idCardsDelete = useAppSelector(idCardsInSet(set.id));
+
+  function onClick(e: MouseEvent) {
+    e.preventDefault();
+    dispatch(openSet(set.id))
+  }
+
+  function onEditButtonClick(e: MouseEvent) {
+    e.stopPropagation();
+    dispatch(editForm(set))
+  }
+
+  function onDeleteButtonClick(e: MouseEvent) {
+    e.stopPropagation();
+    dispatch(deleteSet(set.id))
+    dispatch(deleteCardsInSet(idCardsDelete))
+  }
 
   return (
-    <div className={styles.set} onClick={(e) => {
-      e.preventDefault();
-      dispatch(openSet(id))
-    }}>
-      <p>{id}</p>
-      <p>{name}</p>
-      <button onClick = {(e) => {
-        e.stopPropagation();
-        dispatch(deleteSet(id))
-        dispatch(deleteCardsInSet(idCardsDelete))
-      }}>Delete</button>
-      <button onClick = {(e) => {
-        e.stopPropagation();
-        dispatch(editForm({
-          id,
-          name
-        }))
-      }}>Edit</button>
+    <div className={styles.set} onClick={onClick}>
+      <p>{set.id}</p>
+      <p>{set.name}</p>
+      <button onClick={onDeleteButtonClick}>Delete</button>
+      <button onClick={onEditButtonClick}>Edit</button>
     </div>
   )
 }

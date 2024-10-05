@@ -1,3 +1,4 @@
+import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editSet } from '../setsList/setsListSlice';
 import styles from './SetEditForm.module.css';
@@ -7,30 +8,34 @@ export function SetEditForm() {
   const setData = useAppSelector(selectForm);
   const dispatch = useAppDispatch();
 
+  function onFormSubmit(e: FormEvent) {
+    e.preventDefault();
+    dispatch(editSet({
+      id: setData.id,
+      changes: {
+        name: setData.name
+      }
+    }))
+  }
+
+  function onFormChange(e: ChangeEvent<HTMLInputElement>) {
+      dispatch(editForm({
+      id: setData.id,
+      name: e.target.value
+    }))
+  }
+
   return (
-    <div>
+    <form className={styles.setEditForm} onSubmit={onFormSubmit}>
       <p>Set edit form</p>
-      <form className={styles.setEditForm} onSubmit={(e) => {
-        e.preventDefault();
-        dispatch(editSet({
-          id: setData.id,
-          changes: {
-            name: setData.name
-          }
-        }))
-      }}>
-        <label>Name:
-          <input
-            type="text"
-            value={setData.name}
-            onChange={(e) => dispatch(editForm({
-              id: setData.id,
-              name: e.target.value
-            }))}
-          />
-        </label>
-        <input type="submit" value="Update"></input>
-      </form>
-    </div>
+      <label>Name:
+        <input
+          type="text"
+          value={setData.name}
+          onChange={onFormChange}
+        />
+      </label>
+      <input type="submit" value="Update"></input>
+    </form>
   )
 }

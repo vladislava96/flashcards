@@ -3,7 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from "../../app/store";
 
 interface boardState {
-  openSetID: number
+  openSetID: number,
+  
 }
 
 const initialState: boardState = { openSetID: -1 };
