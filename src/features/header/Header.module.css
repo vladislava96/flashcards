@@ -1,0 +1,12 @@
+.headerWrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90vw;
+  height: 70px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: inline-block;
+}

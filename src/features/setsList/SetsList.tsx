@@ -2,28 +2,31 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import style from './SetsList.module.css';
 import { Set } from '../set/Set';
 import { allSets } from './setsListSlice';
-import { SetCreationForm } from '../set-creation-form/SetCreationForm';
-import { SetEditForm } from '../set-edit-form/SetEditForm';
-import { activeEditForm, selectForm } from '../set-edit-form/setEditFormSlice';
+import add from './add.svg';
+import { addSet } from './setsListSlice';
+import { activeEditForm } from '../set-edit-form/setEditFormSlice';
 
 export function SetsList() {
   const dispatch = useAppDispatch();
   const sets = useAppSelector(allSets);
-  const { activity } = useAppSelector(selectForm);
 
 	return (
-    <div>
-      <h2>Наборы</h2>
+    <div className={style.setsListWrapper}>
       <div className={style.setsList}>
         {sets.map(set => (
           <Set key={set.id} set={set} />
         ))}
+        <div className={style.createSetButton} onClick={() => { 
+            dispatch(addSet({
+              id: -1,
+              name: 'New set',
+              cards: []
+            }));
+            dispatch(activeEditForm(false))
+          }}>
+          <img src={add} alt="add"/>
+        </div>
       </div>
-      <div>
-        <SetCreationForm />
-        {activity && <SetEditForm />}
-      </div>
-      <button onClick={() => { dispatch(activeEditForm(true)) }}>Create set</button>
     </div>
 	)
 }

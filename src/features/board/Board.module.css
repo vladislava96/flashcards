@@ -1,6 +1,8 @@
 .board {
   width: 90vw;
+  height: calc(100vh - 95px);
   background-color: aqua;
+  margin: 0 auto;
 }
 
 .breadcrumbs li {
@@ -8,7 +10,16 @@
   list-style: none;
 }
 
+.activeList {
+  text-decoration: underline;
+}
+
 .breadcrumbs {
+  display: flex;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  justify-content: start;
   background-color: blueviolet;
   color:beige
 }

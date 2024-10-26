@@ -8,14 +8,20 @@ export function Board() {
   const selectSet = useAppSelector(selectBoard);
   const dispatch = useAppDispatch();
 
+  function onChangeBoard() {
+    if (selectSet !== -1) {
+      dispatch(openSet(-1))
+    }
+    return
+  }
+
   return (
     <div className={styles.board}>
       <ul className={styles.breadcrumbs}>
-        <li onClick={() => dispatch(openSet(-1))}>Наборы</li>
-        {selectSet !== -1 && <li>Карточки</li>}
+        <li onClick={onChangeBoard}>Sets</li>
+        {selectSet !== -1 && <li>Cards</li>}
       </ul>
       { selectSet !== -1 ? <CardsList /> : <SetsList /> }
-      <div>{selectSet}</div>
     </div>
   )
 }

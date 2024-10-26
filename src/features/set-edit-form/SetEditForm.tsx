@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editSet } from '../setsList/setsListSlice';
 import styles from './SetEditForm.module.css';
-import { editForm, selectForm } from './setEditFormSlice';
+import { activeEditForm, editForm, selectForm } from './setEditFormSlice';
 
 export function SetEditForm() {
   const setData = useAppSelector(selectForm);
@@ -10,15 +10,19 @@ export function SetEditForm() {
 
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
+    e.stopPropagation();
     dispatch(editSet({
       id: setData.id,
       changes: {
         name: setData.name
       }
     }))
+    dispatch(activeEditForm(false))
   }
 
   function onFormChange(e: ChangeEvent<HTMLInputElement>) {
+      e.preventDefault();
+      e.stopPropagation();
       dispatch(editForm({
       id: setData.id,
       name: e.target.value
@@ -27,7 +31,6 @@ export function SetEditForm() {
 
   return (
     <form className={styles.setEditForm} onSubmit={onFormSubmit}>
-      <p>Set edit form</p>
       <label>Name:
         <input
           type="text"

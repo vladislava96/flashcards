@@ -4,7 +4,7 @@ import { RootState } from "../../app/store";
 export interface setEditFormState {
   id: number,
   name: string,
-  activity: boolean
+  activityEditForm: boolean
 }
 
 export interface editSetData {
@@ -15,7 +15,7 @@ export interface editSetData {
 const initialState: setEditFormState = {
   id: -1,
   name: '',
-  activity: false,
+  activityEditForm: false,
 }
 
 const setEditFormSlice = createSlice({
@@ -27,7 +27,7 @@ const setEditFormSlice = createSlice({
       state.name = action.payload.name
     },
     activeEditForm: (state, action: PayloadAction<boolean>) => {
-      state.activity = action.payload
+      state.activityEditForm = action.payload
     }
   }
 })

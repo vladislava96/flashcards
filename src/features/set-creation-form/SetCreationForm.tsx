@@ -17,18 +17,13 @@ export function SetCreationForm() {
   };
 
   return (
-    <div>
-      <p>Set Create form</p>
-      <form className={styles.setCreationForm} onSubmit={onFormSubmit}>
-        <label>name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Add"></input>
-      </form>
-    </div>
+    <form className={styles.setCreationForm} onSubmit={onFormSubmit}>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      <input type="submit" value="Add"></input>
+    </form>
   )
 }
