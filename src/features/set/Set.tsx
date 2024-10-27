@@ -16,7 +16,7 @@ export function Set({ set }: SetProperties) {
   const dispatch = useAppDispatch();
   const idCardsDelete = useAppSelector(idCardsInSet(set.id));
   const { activityEditForm } = useAppSelector(selectForm);
-  const [onClickNameId, setOnClickNameId] = useState(-1);
+  const setData = useAppSelector(selectForm);
 
   function onClick(e: MouseEvent) {
     e.preventDefault();
@@ -25,17 +25,9 @@ export function Set({ set }: SetProperties) {
   }
 
   function onEditButtonClick(e: MouseEvent) {
-
     e.stopPropagation();
-    dispatch(activeEditForm(true));
-    const element = e.target as HTMLTextAreaElement;
-    console.log(element);
-    const id = Number(element.getAttribute('data-id'));
-    setOnClickNameId(id);
-    dispatch(activeEditForm(true))
     dispatch(editForm(set));
-    console.log(id);
-    console.log(activityEditForm);
+    dispatch(activeEditForm(true));
   }
 
   function onDeleteButtonClick(e: MouseEvent) {
@@ -45,9 +37,15 @@ export function Set({ set }: SetProperties) {
   }
 
   return (
-    <div className={styles.set}>
-      <p onClick={onEditButtonClick} data-id={set.id}>{set.name}</p>
-      <button onClick={onDeleteButtonClick}>Delete</button>
+    <div className={styles.setWrapper}>
+      {
+        activityEditForm && (setData.id === set.id) ?
+        <SetEditForm /> :
+        <div className={styles.set} onClick={onClick}>
+          <p onClick={onEditButtonClick}>{set.name}</p>
+          <button onClick={onDeleteButtonClick}>Delete</button>
+        </div>
+      }
     </div>
   )
 }

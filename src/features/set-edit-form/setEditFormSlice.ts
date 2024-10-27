@@ -28,7 +28,7 @@ const setEditFormSlice = createSlice({
     },
     activeEditForm: (state, action: PayloadAction<boolean>) => {
       state.activityEditForm = action.payload
-    }
+    },
   }
 })
 

@@ -18,15 +18,19 @@ export function SetEditForm() {
       }
     }))
     dispatch(activeEditForm(false))
+    dispatch(editForm({
+      id: -1,
+      name: ''
+    }));
   }
 
   function onFormChange(e: ChangeEvent<HTMLInputElement>) {
       e.preventDefault();
       e.stopPropagation();
       dispatch(editForm({
-      id: setData.id,
-      name: e.target.value
-    }))
+        id: setData.id,
+        name: e.target.value
+      }))
   }
 
   return (
