@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addCard } from '../cardsList/cardsListSlice';
 import styles from './CardCreationForm.module.css';
 import { selectBoard } from '../board/boardSlice';
+import { activeCreationForm } from './cardCreationFormSlice';
 
 export function CardCreationForm() {
   const [term, setTerm] = useState("");
@@ -17,7 +18,10 @@ export function CardCreationForm() {
       definition: description,
       id: -1,
       setId: openSetId
-    }))
+    }));
+    setTerm("");
+    setDescription("");
+    dispatch(activeCreationForm(false))
   }
   return (
     <div>

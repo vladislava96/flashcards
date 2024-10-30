@@ -5,6 +5,7 @@ import setsListReducer from '../features/setsList/setsListSlice';
 import boardReducer from '../features/board/boardSlice';
 import setEditFormReducer from '../features/set-edit-form/setEditFormSlice';
 import setCreationFormReducer from '../features/set-creation-form/SetCreationFormSlice';
+import cardCreationFormReducer from '../features/card-creation-form/cardCreationFormSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     editForm: editFormReducer,
     board: boardReducer,
     setEditForm: setEditFormReducer,
-    setCreationForm: setCreationFormReducer
+    setCreationForm: setCreationFormReducer,
+    cardCreationForm: cardCreationFormReducer,
   },
 });
 
