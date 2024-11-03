@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editCard } from '../cardsList/cardsListSlice';
 import styles from './CardEditForm.module.css';
-import { editForm, selectForm } from './cardEditFormSlice';
+import { activeCreationForm, editForm, selectForm } from './cardEditFormSlice';
 
 
 export function CardEditForm() {
@@ -17,7 +17,8 @@ export function CardEditForm() {
         term: cardData.term,
         definition: cardData.definition
       }
-    }))
+    }));
+    dispatch(activeCreationForm(false))
   }
 
   function onTermChange(e: ChangeEvent<HTMLInputElement>) {

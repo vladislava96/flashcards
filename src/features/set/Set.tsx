@@ -5,7 +5,7 @@ import { deleteSet, SetModel } from '../setsList/setsListSlice';
 import { openSet } from '../board/boardSlice';
 import { activeEditForm, editForm, selectForm } from '../set-edit-form/setEditFormSlice';
 import { idCardsInSet, deleteCardsInSet } from '../cardsList/cardsListSlice';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 import { SetEditForm } from '../set-edit-form/SetEditForm';
 
 interface SetProperties {

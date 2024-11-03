@@ -5,7 +5,6 @@ import { selectBoard } from '../board/boardSlice';
 
 import style from './CardsList.module.css';
 import { CardCreationForm } from '../card-creation-form/cardCreationForm';
-import { CardEditForm } from '../card-edit-form/cardEditForm';
 import { activeCreationForm, selectCardCreationForm } from '../card-creation-form/cardCreationFormSlice';
 
 export function CardsList() {
@@ -29,10 +28,6 @@ export function CardsList() {
             "+"
           }
         </div>
-      </div>
-      <div>
-        <CardEditForm />
-        <p>Карточки</p>
       </div>
     </div>
 	)
