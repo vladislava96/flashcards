@@ -6,6 +6,7 @@ import { deleteCard } from '../cardsList/cardsListSlice';
 import { CardModel } from '../cardsList/cardsListSlice';
 import { activeCreationForm, editForm, selectForm } from '../card-edit-form/cardEditFormSlice';
 import { CardEditForm } from '../card-edit-form/cardEditForm';
+import trash from '../../img/trash.svg';
 
 interface CardProperties {
   card: CardModel
@@ -30,13 +31,14 @@ export function Card({ card }: CardProperties) {
 
   return (
     <div className={styles.card} onClick={() => setSide(!inverted)}>
-      { activityCreationForm && (card.id === cardData.id) ?
+      {
+        activityCreationForm && (card.id === cardData.id) ?
         <CardEditForm /> :
-        <div>
-          <p onClick={onEditButtonClick}>{inverted ? card.definition : card.term}</p>
-          <p>{card.id}</p>
-          <p>{card.setId}</p>
-          <button onClick={onDeleteButtonClick}>Delete</button>
+        <div className={styles.cardView}>
+          <p className={styles.words} onClick={onEditButtonClick}>{inverted ? card.definition : card.term}</p>
+          <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
+            <img className={styles.svg} src = {trash} alt="Delete"></img>
+          </button>
         </div>
       }
     </div>

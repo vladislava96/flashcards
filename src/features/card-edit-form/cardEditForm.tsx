@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editCard } from '../cardsList/cardsListSlice';
 import styles from './CardEditForm.module.css';
 import { activeCreationForm, editForm, selectForm } from './cardEditFormSlice';
+import tickCircle from '../../img/tick-circle.svg';
 
 
 export function CardEditForm() {
@@ -40,25 +41,20 @@ export function CardEditForm() {
   }
 
   return (
-    <div>
-      <p>Edit form</p>
-      <form className={styles.cardEditForm} onSubmit={onFormSubmit}>
-        <label>Term:
-          <input
-            type="text"
-            value={cardData.term}
-            onChange={onTermChange}
-          />
-        </label>
-        <label>Description:
-          <input
-            type="text"
-            value={cardData.definition}
-            onChange={onDefinitionChange}
-          />
-        </label>
-        <input type="submit" value="Update"></input>
-      </form>
-    </div>
+    <form className={styles.cardEditForm} onSubmit={onFormSubmit}>
+      <input
+        type="text"
+        value={cardData.term}
+        onChange={onTermChange}
+      />
+      <input
+        type="text"
+        value={cardData.definition}
+        onChange={onDefinitionChange}
+      />
+      <button className={styles.updateButton} type="submit" value="Update">
+        <img src={tickCircle} alt="Submit"></img>
+      </button>
+    </form>
   )
 }
