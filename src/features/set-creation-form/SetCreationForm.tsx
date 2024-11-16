@@ -3,6 +3,7 @@ import { useAppDispatch } from '../../app/hooks';
 import { addSet } from '../setsList/setsListSlice';
 import styles from './SetCreationForm.module.css';
 import { activeCreationForm } from './SetCreationFormSlice';
+import add from '../../img/add.svg';
 
 export function SetCreationForm() {
   const [name, setName] = useState("");
@@ -26,7 +27,9 @@ export function SetCreationForm() {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input type="submit" value="Add"></input>
+      <button className={styles.addButton} type="submit" value="Update">
+        <img src={add} alt="Add"></img>
+      </button>
     </form>
   )
 }

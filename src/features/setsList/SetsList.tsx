@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import style from './SetsList.module.css';
 import { Set } from '../set/Set';
 import { allSets } from './setsListSlice';
-import add from './add.svg';
+import add from '../../img/add.svg';
 import { SetCreationForm } from '../set-creation-form/SetCreationForm';
 import { activeCreationForm, selectSetCreationForm } from '../set-creation-form/SetCreationFormSlice';
 
@@ -18,13 +18,12 @@ export function SetsList() {
           <Set key={set.id} set={set} />
         ))}
         <div className={style.createSetButton} onClick={() => {
-          console.log(activityForm)
             dispatch(activeCreationForm(true))
           }}>
           {
             activityForm.activityCreationForm ?
             <SetCreationForm /> :
-            <img src={add} alt="add"/>
+            <img src={add} alt="Add"/>
           }
         </div>
       </div>

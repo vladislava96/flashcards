@@ -6,6 +6,7 @@ import { selectBoard } from '../board/boardSlice';
 import style from './CardsList.module.css';
 import { CardCreationForm } from '../card-creation-form/cardCreationForm';
 import { activeCreationForm, selectCardCreationForm } from '../card-creation-form/cardCreationFormSlice';
+import add from '../../img/add.svg';
 
 export function CardsList() {
   const openSetID = useAppSelector(selectBoard);
@@ -25,7 +26,7 @@ export function CardsList() {
           {
             activityForm.activityCreationForm ?
             <CardCreationForm /> :
-            "+"
+            <img src={add} alt="Add"/>
           }
         </div>
       </div>

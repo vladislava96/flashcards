@@ -1,5 +1,32 @@
 .cardCreationForm {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  align-items: center;
+  gap: 40px;
+}
+
+.cardCreationForm input[type="text"] {
+  width: 200px;
+  background: none;
+  border: none;
+  text-align: center;
+  border-bottom: solid 1px #C4C4C4;
+  font-size: 24px;
+}
+
+.setCreationForm input[type="text"]:active, :focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 61px;
+  height: 61px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }

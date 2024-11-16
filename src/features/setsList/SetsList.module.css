@@ -5,7 +5,6 @@
   gap: 45px;
   flex-wrap: wrap;
   margin: 0 auto;
-  background-color: rgb(240, 166, 166);
   overflow: auto;
 }
 
@@ -19,7 +18,12 @@
   align-items: center;
   width: 300px;
   height: 300px;
-  padding: 10px;
-  border: 1px solid black;
+  padding: 20px;
   border-radius: 5px;
+  background-color: #EFEFEF;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #3D3D3D;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 24px;
+  cursor: pointer;
 }

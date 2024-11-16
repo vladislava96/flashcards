@@ -4,6 +4,7 @@ import { addCard } from '../cardsList/cardsListSlice';
 import styles from './CardCreationForm.module.css';
 import { selectBoard } from '../board/boardSlice';
 import { activeCreationForm } from './cardCreationFormSlice';
+import add from '../../img/add.svg';
 
 export function CardCreationForm() {
   const [term, setTerm] = useState("");
@@ -24,25 +25,20 @@ export function CardCreationForm() {
     dispatch(activeCreationForm(false))
   }
   return (
-    <div>
-      <p>Create form</p>
-      <form className={styles.cardCreationForm} onSubmit={onSubmitForm}>
-        <label>Term:
-          <input
-            type="text"
-            value={term}
-            onChange={(e) => setTerm(e.target.value)}
-          />
-        </label>
-        <label>Description:
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Add"></input>
-      </form>
-    </div>
+    <form className={styles.cardCreationForm} onSubmit={onSubmitForm}>
+      <input
+        type="text"
+        value={term}
+        onChange={(e) => setTerm(e.target.value)}
+      />
+      <input
+        type="text"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button className={styles.addButton} type="submit" value="Update">
+        <img src={add} alt="Add"></img>
+      </button>
+    </form>
   )
 }
