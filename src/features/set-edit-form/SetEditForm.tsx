@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { editSet } from '../setsList/setsListSlice';
 import styles from './SetEditForm.module.css';
 import { activeEditForm, editForm, selectForm } from './setEditFormSlice';
+import tickCircle from '../../img/tick-circle.svg';
 
 export function SetEditForm() {
   const setData = useAppSelector(selectForm);
@@ -35,14 +36,14 @@ export function SetEditForm() {
 
   return (
     <form className={styles.setEditForm} onSubmit={onFormSubmit}>
-      <label>Name:
-        <input
-          type="text"
-          value={setData.name}
-          onChange={onFormChange}
-        />
-      </label>
-      <input type="submit" value="Update"></input>
+      <input
+        type="text"
+        value={setData.name}
+        onChange={onFormChange}
+      />
+      <button className={styles.updateButton} type="submit" value="Update">
+        <img src={tickCircle} alt="Submit"></img>
+      </button>
     </form>
   )
 }

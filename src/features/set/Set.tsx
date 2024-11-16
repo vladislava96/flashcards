@@ -7,6 +7,7 @@ import { activeEditForm, editForm, selectForm } from '../set-edit-form/setEditFo
 import { idCardsInSet, deleteCardsInSet } from '../cardsList/cardsListSlice';
 import { MouseEvent } from 'react';
 import { SetEditForm } from '../set-edit-form/SetEditForm';
+import trash from '../../img/trash.svg';
 
 interface SetProperties {
   set: SetModel
@@ -37,13 +38,15 @@ export function Set({ set }: SetProperties) {
   }
 
   return (
-    <div className={styles.setWrapper}>
+    <div className={styles.set}>
       {
         activityEditForm && (setData.id === set.id) ?
         <SetEditForm /> :
-        <div className={styles.set} onClick={onClick}>
-          <p onClick={onEditButtonClick}>{set.name}</p>
-          <button onClick={onDeleteButtonClick}>Delete</button>
+        <div className={styles.setView} onClick={onClick}>
+          <p className={styles.words} onClick={onEditButtonClick}>{set.name}</p>
+          <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
+            <img className={styles.svg} src = {trash} alt="Delete">
+          </img></button>
         </div>
       }
     </div>
