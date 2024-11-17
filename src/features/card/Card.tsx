@@ -5,7 +5,7 @@ import { MouseEvent, useState } from 'react';
 import { deleteCard } from '../cardsList/cardsListSlice';
 import { CardModel } from '../cardsList/cardsListSlice';
 import { activeCreationForm, editForm, selectForm } from '../card-edit-form/cardEditFormSlice';
-import { CardEditForm } from '../card-edit-form/cardEditForm';
+import { CardEditForm } from '../card-edit-form/CardEditForm';
 import trash from '../../img/trash.svg';
 
 interface CardProperties {

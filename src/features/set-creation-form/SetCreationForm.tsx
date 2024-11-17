@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import { addSet } from '../setsList/setsListSlice';
 import styles from './SetCreationForm.module.css';
-import { activeCreationForm } from './SetCreationFormSlice';
+import { activeCreationForm } from './setCreationFormSlice';
 import add from '../../img/add.svg';
 
 export function SetCreationForm() {

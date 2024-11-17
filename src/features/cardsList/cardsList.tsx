@@ -4,7 +4,7 @@ import { cardsInSet } from './cardsListSlice';
 import { selectBoard } from '../board/boardSlice';
 
 import style from './CardsList.module.css';
-import { CardCreationForm } from '../card-creation-form/cardCreationForm';
+import { CardCreationForm } from '../card-creation-form/CardCreationForm';
 import { activeCreationForm, selectCardCreationForm } from '../card-creation-form/cardCreationFormSlice';
 import add from '../../img/add.svg';
 

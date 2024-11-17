@@ -4,7 +4,7 @@ import { Set } from '../set/Set';
 import { allSets } from './setsListSlice';
 import add from '../../img/add.svg';
 import { SetCreationForm } from '../set-creation-form/SetCreationForm';
-import { activeCreationForm, selectSetCreationForm } from '../set-creation-form/SetCreationFormSlice';
+import { activeCreationForm, selectSetCreationForm } from '../set-creation-form/setCreationFormSlice';
 
 export function SetsList() {
   const dispatch = useAppDispatch();
