@@ -45,8 +45,7 @@ export function Set({ set }: SetProperties) {
         <div className={styles.setView} onClick={onClick}>
           <p className={styles.words} onClick={onEditButtonClick}>{set.name}</p>
           <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
-            <img className={styles.svg} src = {trash} alt="Delete">
-          </img></button>
+            <img className={styles.svg} src = {trash} alt="Delete"></img></button>
         </div>
       }
     </div>

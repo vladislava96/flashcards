@@ -1,12 +1,14 @@
-.headerWrapper {
+.headerContainer {
   display: flex;
   justify-content: start;
   align-items: center;
   width: 90vw;
-  height: 70px;
+  padding: 20px 0;
   margin: 0 auto;
 }
 
 .logo {
   display: inline-block;
+  color: #4848BD;
+  font-size: 36px;
 }

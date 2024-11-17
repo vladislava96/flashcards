@@ -1,13 +1,13 @@
 .board {
   width: 90vw;
   height: calc(100vh - 95px);
-  background-color: rgb(186, 229, 229);
   margin: 0 auto;
 }
 
 .breadcrumbs li {
   display: inline-block;
   list-style: none;
+  cursor: pointer;
 }
 
 .activeList {
@@ -16,10 +16,19 @@
 
 .breadcrumbs {
   display: flex;
+  align-items: center;
   height: 25px;
-  margin: 0;
+  margin: 20px 0;
   padding: 0;
   justify-content: start;
-  background-color: blueviolet;
-  color:beige
+  color:#3D3D3D;
+  gap: 10px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+}
+
+.separator {
+  width: 20px;
+  height: 1px;
+  background-color: #3D3D3D;
 }

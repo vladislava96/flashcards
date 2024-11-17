@@ -19,6 +19,7 @@ export function Board() {
     <div className={styles.board}>
       <ul className={styles.breadcrumbs}>
         <li onClick={onChangeBoard}>Sets</li>
+        {selectSet !== -1 && <li><div className={styles.separator}></div></li>}
         {selectSet !== -1 && <li>Cards</li>}
       </ul>
       { selectSet !== -1 ? <CardsList /> : <SetsList /> }
