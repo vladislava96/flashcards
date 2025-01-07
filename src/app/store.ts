@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import cardsListReducer from '../features/cardsList/cardsListSlice';
+import cardsListReducer from '../features/cards-list/cardsListSlice';
 import editFormReducer from '../features/card-edit-form/cardEditFormSlice';
-import setsListReducer from '../features/setsList/setsListSlice';
+import setsListReducer from '../features/sets-list/setsListSlice';
 import boardReducer from '../features/board/boardSlice';
 import setEditFormReducer from '../features/set-edit-form/setEditFormSlice';
 import setCreationFormReducer from '../features/set-creation-form/setCreationFormSlice';

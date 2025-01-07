@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { editSet } from '../setsList/setsListSlice';
+import { editSet } from '../sets-list/setsListSlice';
 import styles from './SetEditForm.module.css';
 import { activeEditForm, editForm, selectForm } from './setEditFormSlice';
 import tickCircle from '../../img/tick-circle.svg';

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
-import { addSet } from '../setsList/setsListSlice';
+import { addSet } from '../sets-list/setsListSlice';
 import styles from './SetCreationForm.module.css';
 import { activeCreationForm } from './setCreationFormSlice';
 import add from '../../img/add.svg';

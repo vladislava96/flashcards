@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { editCard } from '../cardsList/cardsListSlice';
+import { editCard } from '../cards-list/cardsListSlice';
 import styles from './CardEditForm.module.css';
 import { activeCreationForm, editForm, selectForm } from './cardEditFormSlice';
 import tickCircle from '../../img/tick-circle.svg';

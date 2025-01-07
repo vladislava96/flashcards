@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { CardsList } from '../cardsList/CardsList';
-import { SetsList } from '../setsList/SetsList';
+import { CardsList } from '../cards-list/CardsList';
+import { SetsList } from '../sets-list/SetsList';
 import { openSet, selectBoard } from './boardSlice';
 import styles from './Board.module.css';
 

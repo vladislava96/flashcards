@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CardModel } from "../cardsList/cardsListSlice";
+import { CardModel } from "../cards-list/cardsListSlice";
 import { RootState } from "../../app/store";
 
 export interface cardEditFormState {

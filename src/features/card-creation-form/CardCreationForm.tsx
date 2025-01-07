@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { addCard } from '../cardsList/cardsListSlice';
+import { addCard } from '../cards-list/cardsListSlice';
 import styles from './CardCreationForm.module.css';
 import { selectBoard } from '../board/boardSlice';
 import { activeCreationForm } from './cardCreationFormSlice';

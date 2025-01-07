@@ -1,10 +1,10 @@
 import styles from './Set.module.css';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { deleteSet, SetModel } from '../setsList/setsListSlice';
+import { deleteSet, SetModel } from '../sets-list/setsListSlice';
 import { openSet } from '../board/boardSlice';
 import { activeEditForm, editForm, selectForm } from '../set-edit-form/setEditFormSlice';
-import { idCardsInSet, deleteCardsInSet } from '../cardsList/cardsListSlice';
+import { idCardsInSet, deleteCardsInSet } from '../cards-list/cardsListSlice';
 import { MouseEvent } from 'react';
 import { SetEditForm } from '../set-edit-form/SetEditForm';
 import trash from '../../img/trash.svg';

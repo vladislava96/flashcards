@@ -2,8 +2,8 @@ import styles from './Card.module.css';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { MouseEvent, useState } from 'react';
-import { deleteCard } from '../cardsList/cardsListSlice';
-import { CardModel } from '../cardsList/cardsListSlice';
+import { deleteCard } from '../cards-list/cardsListSlice';
+import { CardModel } from '../cards-list/cardsListSlice';
 import { activeCreationForm, editForm, selectForm } from '../card-edit-form/cardEditFormSlice';
 import { CardEditForm } from '../card-edit-form/CardEditForm';
 import trash from '../../img/trash.svg';

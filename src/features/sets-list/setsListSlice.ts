@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { CardModel } from "../cardsList/cardsListSlice";
+import { CardModel } from "../cards-list/cardsListSlice";
 
 export interface SetModel {
   id: number;
