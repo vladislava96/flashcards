@@ -47,11 +47,13 @@
 }
 
 .words {
-  padding: 5px 10px;
-  box-sizing: border-box;
   cursor: text;
+  margin: 0;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow: auto;
 }
 
 .words:hover {
-  border: solid 1px #C4C4C4;
+  border: solid 1px #4848BD;
 }

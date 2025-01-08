@@ -35,7 +35,7 @@ export function Card({ card }: CardProperties) {
         activityCreationForm && (card.id === cardData.id) ?
         <CardEditForm /> :
         <div className={styles.cardView}>
-          <p className={styles.words} onClick={onEditButtonClick}>{inverted ? card.definition : card.term}</p>
+          <div className={styles.words} onClick={onEditButtonClick}>{inverted ? card.definition : card.term}</div>
           <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
             <img className={styles.svg} src = {trash} alt="Delete"></img>
           </button>

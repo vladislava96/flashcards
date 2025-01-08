@@ -43,7 +43,7 @@ export function Set({ set }: SetProperties) {
         activityEditForm && (setData.id === set.id) ?
         <SetEditForm /> :
         <div className={styles.setView} onClick={onClick}>
-          <p className={styles.words} onClick={onEditButtonClick}>{set.name}</p>
+          <div className={styles.words} onClick={onEditButtonClick}>{set.name}</div>
           <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
             <img className={styles.svg} src = {trash} alt="Delete"></img></button>
         </div>

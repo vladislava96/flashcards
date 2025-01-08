@@ -16,6 +16,7 @@
   border: none;
   border-bottom: solid 1px #C4C4C4;
   font-size: 24px;
+  text-align: center;
 }
 
 .setEditForm input[type="text"]:active, :focus {
