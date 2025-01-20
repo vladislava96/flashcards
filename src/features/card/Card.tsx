@@ -13,8 +13,8 @@ interface CardProperties {
 }
 
 export function Card({ card }: CardProperties) {
+  const [inRotate, setRotate] = useState(false);
   const dispatch = useAppDispatch();
-  const [inverted, setSide] = useState(false);
   const { activityCreationForm } = useAppSelector(selectForm);
   const cardData = useAppSelector(selectForm);
 
@@ -29,18 +29,38 @@ export function Card({ card }: CardProperties) {
     dispatch(activeCreationForm(true));
   }
 
+  let cardSide1 = inRotate ? (styles.cardSide1 + ' ' + styles.cardRotate) : styles.cardSide1;
+  let cardSide2 = inRotate ? (styles.cardSide2 + ' ' + styles.cardRotate2) : styles.cardSide2;
+
   return (
-    <div className={styles.card} onClick={() => setSide(!inverted)}>
-      {
-        activityCreationForm && (card.id === cardData.id) ?
-        <CardEditForm /> :
-        <div className={styles.cardView}>
-          <div className={styles.words} onClick={onEditButtonClick}>{inverted ? card.definition : card.term}</div>
-          <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
-            <img className={styles.svg} src = {trash} alt="Delete"></img>
-          </button>
+  <div>
+    { activityCreationForm && (card.id === cardData.id) ?
+      <CardEditForm /> :
+      <div className={styles.cardWrapper} onClick={ () => {
+        setRotate(!inRotate);
+      }}>
+        <div className={cardSide1}>
+          <div className={styles.cardView}>
+            <div className={styles.words} onClick={onEditButtonClick}>
+              {card.term}
+            </div>
+            <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
+              <img className={styles.svg} src = {trash} alt="Delete"></img>
+            </button>
+          </div>
         </div>
-      }
-    </div>
+        <div className={cardSide2}>
+          <div className={styles.cardView}>
+            <div className={styles.words} onClick={onEditButtonClick}>
+              {card.definition}
+            </div>
+            <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
+              <img className={styles.svg} src = {trash} alt="Delete"></img>
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
   )
 }

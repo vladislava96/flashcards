@@ -1,4 +1,14 @@
-.card {
+.cardWrapper {
+  position: relative;
+  perspective: 800px;
+}
+
+.cardWrapper:focus {
+  animation: rotate 1s ease 1;
+}
+
+.cardSide1 {
+  position: relative;
   width: 300px;
   height: 300px;
   padding: 20px;
@@ -6,8 +16,41 @@
   background-color: #EFEFEF;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #3D3D3D;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.12);
   font-size: 24px;
+  z-index: 10;
+  transition: all 1s ease;
+}
+
+.cardSide2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #EFEFEF;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #3D3D3D;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
+  font-size: 24px;
+  z-index: 1;
+  transition: all 1s ease;
+  transform: rotateY(-0.5turn);
+}
+
+.cardRotate {
+  z-index: 1;
+  transform: rotateY(0.5turn);
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+
+.cardRotate2 {
+  transform: rotateY(0turn);
+  z-index: 10;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 .deleteButton {
