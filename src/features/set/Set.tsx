@@ -38,16 +38,20 @@ export function Set({ set }: SetProperties) {
   }
 
   return (
-    <div className={styles.set}>
-      {
-        activityEditForm && (setData.id === set.id) ?
-        <SetEditForm /> :
-        <div className={styles.setView} onClick={onClick}>
-          <div className={styles.words} onClick={onEditButtonClick}>{set.name}</div>
-          <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
-            <img className={styles.svg} src = {trash} alt="Delete"></img></button>
-        </div>
-      }
+    <div className={styles.setWrapper}>
+      <div className={styles.set}>
+        {
+          activityEditForm && (setData.id === set.id) ?
+          <SetEditForm /> :
+          <div className={styles.setView} onClick={onClick}>
+            <div className={styles.words} onClick={onEditButtonClick}>{set.name}</div>
+            <button className={styles.deleteButton} onClick={onDeleteButtonClick}>
+              <img className={styles.svg} src = {trash} alt="Delete"></img>
+            </button>
+          </div>
+        }
+      </div>
+      <div className={styles.set2}></div>
     </div>
   )
 }
