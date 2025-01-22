@@ -18,9 +18,13 @@ export function Board() {
   return (
     <div className={styles.board}>
       <ul className={styles.breadcrumbs}>
-        <li onClick={onChangeBoard}>Sets</li>
+        <li
+          className={selectSet === -1 ? styles.activeList : ''} 
+          onClick={onChangeBoard}>
+            Sets
+        </li>
         {selectSet !== -1 && <li><div className={styles.separator}></div></li>}
-        {selectSet !== -1 && <li>Cards</li>}
+        {selectSet !== -1 && <li className={styles.activeList}>Cards</li>}
       </ul>
       { selectSet !== -1 ? <CardsList /> : <SetsList /> }
     </div>
