@@ -1,16 +1,9 @@
 .setsList {
   display: flex;
-  width: 100%;
-  height: calc(100vh - 95px);
-  gap: 45px;
+  justify-content: start;
+  gap: 70px;
   flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 15px;
-  overflow: auto;
-}
-
-.setsListWrapper {
-  position: relative;
+  padding: 15px 15px 70px;
 }
 
 .createSetButton {
@@ -21,10 +14,7 @@
   height: 300px;
   padding: 20px;
   border-radius: 5px;
-  background-color: #EFEFEF;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #3D3D3D;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
-  font-size: 24px;
   cursor: pointer;
+  background-color: rgb(249, 249, 249);
 }

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import style from './SetsList.module.css';
+import styles from './SetsList.module.css';
 import { Set } from '../set/Set';
 import { allSets } from './setsListSlice';
 import add from '../../img/add.svg';
@@ -12,20 +12,18 @@ export function SetsList() {
   const activityForm = useAppSelector(selectSetCreationForm)
 
 	return (
-    <div className={style.setsListWrapper}>
-      <div className={style.setsList}>
-        {sets.map(set => (
-          <Set key={set.id} set={set} />
-        ))}
-        <div className={style.createSetButton} onClick={() => {
-            dispatch(activeCreationForm(true))
-          }}>
-          {
-            activityForm.activityCreationForm ?
-            <SetCreationForm /> :
-            <img src={add} alt="Add"/>
-          }
-        </div>
+    <div className={styles.setsList}>
+      {sets.map(set => (
+        <Set key={set.id} set={set} />
+      ))}
+      <div className={styles.createSetButton} onClick={() => {
+          dispatch(activeCreationForm(true))
+        }}>
+        {
+          activityForm.activityCreationForm ?
+          <SetCreationForm /> :
+          <img src={add} alt="Add"/>
+        }
       </div>
     </div>
 	)
