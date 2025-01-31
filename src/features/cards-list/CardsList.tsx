@@ -6,7 +6,7 @@ import { selectBoard } from '../board/boardSlice';
 import style from './CardsList.module.css';
 import { CardCreationForm } from '../card-creation-form/CardCreationForm';
 import { activeCreationForm, selectCardCreationForm } from '../card-creation-form/cardCreationFormSlice';
-import add from '../../img/add.svg';
+import { CreateButton } from '../create-button/CreateButton';
 
 export function CardsList() {
   const openSetID = useAppSelector(selectBoard);
@@ -14,21 +14,21 @@ export function CardsList() {
   const dispatch = useAppDispatch();
   const activityForm = useAppSelector(selectCardCreationForm)
 
+  function handleClick() {
+    dispatch(activeCreationForm(true));
+  }
+
 	return (
     <div>
       <div className={style.cardsList}>
         {cards.map(card => (
           <Card key={card.id} card={card} />
         ))}
-        <div className={style.createCardButton} onClick={() => {
-            dispatch(activeCreationForm(true))
-          }}>
-          {
-            activityForm.activityCreationForm ?
-            <CardCreationForm /> :
-            <img src={add} alt="Add"/>
-          }
-        </div>
+        {
+          activityForm.activityCreationForm ?
+          <CardCreationForm /> :
+          <CreateButton onClick={handleClick} />
+        }
       </div>
     </div>
 	)
