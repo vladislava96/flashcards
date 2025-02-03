@@ -16,9 +16,12 @@
   background-color: #EFEFEF;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #3D3D3D;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.12);
   font-size: 24px;
   z-index: 10;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
   transition: all 1s ease;
 }
 
@@ -33,11 +36,15 @@
   background-color: #EFEFEF;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #3D3D3D;
-  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
+          box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
   font-size: 24px;
   z-index: 1;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
   transition: all 1s ease;
-  transform: rotateY(-0.5turn);
+  -webkit-transform: rotateY(-0.5turn);
+          transform: rotateY(-0.5turn);
 }
 
 .cardRotate {
